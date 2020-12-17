@@ -8,7 +8,7 @@ int main()
 	//********* 初始化变量 和 读取邻接矩阵的文件名 *************//
 
 	//github try
-	cout << "hello boss xiang , this is herr wang 12/17 23:34";
+
 
 	char csv_file_name[27] = "source code/map_matrix.csv";  //读哪个文件
 	vector<node *> nodeList;  //建立 节点 向量
