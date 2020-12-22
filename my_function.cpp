@@ -42,6 +42,26 @@ void PrintOnePath( vector<node *> nodeList)
 	}
 }
 
+void PrintOnePathFromSpecificPoint(vector<node *> nodeList,int num)
+{
+	int i;
+	cout << "想要知道到哪个点的最短路径？" << endl;
+	cin >> i;
+	if (nodeList[i]->dis != 999999)
+	{
+		cout << "从起点到节点" << nodeList[i]->id << "的最短距离是" << nodeList[i]->dis << endl;
+		cout << "最短路径为：" << endl;
+		printPath(nodeList[num], nodeList[i]);
+		cout << endl;
+	}
+	else
+	{
+		cout << "从起点到节点" << nodeList[i]->id << "的最短距离是" << nodeList[i]->dis << endl;
+		cout << "没有路" << endl;
+	}
+}
+
+
 void FindShortestPath(vector<node * > & nodeList, vector<edge * > & edgeList)
 {
 	vector<node *> S;  //节点S 向量
@@ -77,6 +97,44 @@ void FindShortestPath(vector<node * > & nodeList, vector<edge * > & edgeList)
 	}
 
 }
+
+void FindShortestPathFromSpecificPoint(vector<node * > & nodeList, vector<edge * > & edgeList,int num)
+{
+	vector<node *> S;  //节点S 向量
+	nodeList[num]->dis = 0;  //给给定节点的 dis 赋值
+	S.push_back(nodeList[num]);  //存进 S 向量
+	vector<node *> Q;  // 节点Q 向量
+
+	for (int i = 0; i < nodeList.size(); i++)
+		Q.push_back(nodeList[i]);   // 相当于复制  Q=nodeList
+
+	while (!Q.empty())  //只要Q里面有元素，就一直执行
+	{
+		auto u = extract_min(Q);
+		if (u != NULL)
+		{
+			for (vector<node *>::iterator it = Q.begin(); it != Q.end(); it++) {
+				//如果遍历到 最小的dis ??
+				if (*it == u) {
+					Q.erase(it); //
+					break;
+				}
+			}
+			S.push_back(u);
+			for (auto v : u->adjNodes)
+			{
+				auto e = foundEdge(u, v, edgeList);  // 到这一步，就找到了两个节点和一条路径
+				relax(u, v, e->weight);			//储存上一节点
+			}
+		}
+		else
+			break;
+
+	}
+
+}
+
+
 
 edge * foundEdge(node * n1, node * n2, vector<edge *> edgeList)
 {

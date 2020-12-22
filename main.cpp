@@ -10,7 +10,9 @@ int main()
 	//github try
 
 
-	char csv_file_name[27] = "source code/map_matrix.csv";  //读哪个文件
+	//char csv_file_name[27] = "source code/map_matrix.csv";  //读哪个文件
+	//char csv_file_name[27] = "code/map_matrix.csv";  //读哪个文件
+	char csv_file_name[27] = "map_matrix_test.csv";  //读哪个文件
 	vector<node *> nodeList;  //建立 节点 向量
 	vector<edge *> edgeList;  //建立 egde 向量
 
@@ -37,6 +39,17 @@ int main()
 	PrintOnePath(nodeList);
 	//              end                     //
 
+	int num;
+	cout << "输入起点序号" << endl;
+	cin >> num;
+	//选择起点
+
+	FindShortestPathFromSpecificPoint(nodeList, edgeList, num);
+
+	//                    end                        //
+
+	PrintOnePathFromSpecificPoint(nodeList, num);
+    //                    end                        //
 
 	getchar();
 	return 0;
