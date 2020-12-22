@@ -15,7 +15,7 @@ void PrintAllPath(vector<node *> nodeList)
 		}
 		else
 		{
-			cout << "从起点到节点" << nodeList[i]->id << "的最短距离是" << nodeList[i]->dis << endl;
+			//cout << "从起点到节点" << nodeList[i]->id << "的最短距离是" << nodeList[i]->dis << endl;
 			cout << "没有路" << endl;
 		}
 	}
