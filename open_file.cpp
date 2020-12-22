@@ -1,13 +1,15 @@
 #include "open_file.h"
+#include <math.h>
 #define IS_PRINT_READ_RESULT 0
 
-void Csv2MyClass(vector<node * > & nodeList, vector<edge * > & edgeList, char csv_file_name[])
+void Csv2MyClass(vector<node * > & nodeList, vector<edge * > & edgeList, char node_file_name[], char edge_file_name[])
 {
-	read_csv(csv_file_name,nodeList);
+	read_node_info( node_file_name , nodeList );
+	read_edge_info(edge_file_name, edgeList, nodeList);
 
 }
 
-void read_csv(char file_name[], vector<node * > & nodeList)
+void read_node_info(char file_name[], vector<node * > & nodeList)
 {
 	ifstream fp(file_name, ios::in);
 	string line_str; //存放每一行的
@@ -46,6 +48,43 @@ void read_csv(char file_name[], vector<node * > & nodeList)
 
 		nodeList.push_back(z);
 	}
+
+
+     /* 
+	//显示节点名字 x y 以及连接的节点
+	for (int i = 0; i < nodeList.size(); i++)
+	{
+		cout << nodeList[i]->node_name <<"x:"<< nodeList[i]->position_x<<"y:"<< nodeList[i]->position_y  << endl;
+	}
+	*/
+
+}
+
+
+void read_edge_info(char file_name[], vector<edge * > & edgeList, vector<node * > & nodeList)
+{
+	ifstream fp(file_name, ios::in);
+	string line_str; //存放每一行的
+	vector< vector<string> >str_array_hang; //存放字符串数组的数组
+	vector< vector<int>  > map_matrix;  //存放邻接矩阵
+
+	while (getline(fp, line_str)) //每次读一行
+	{
+		//cout << line_str << endl;  //输出这一行
+
+		stringstream ss(line_str); //转化为 stringstream，类型
+		string str;  //用来储存逗号之间的字符串
+		vector<string> str_array_lie;
+
+		while (getline(ss, str, ','))
+		{
+			str_array_lie.push_back(str); //把逗号之间的 字符 存储在一个行向量里
+		}
+		str_array_hang.push_back(str_array_lie);
+
+	}
+	
+	/*  
 	//存储连接的节点
 	for (int i = 1; i < str_array_hang.size(); i++)
 	{
@@ -61,13 +100,41 @@ void read_csv(char file_name[], vector<node * > & nodeList)
 		}
 
 	}
-     /*  
-	//显示节点名字 x y 以及连接的节点
+	*/
+
+		
+	for (int i = 2; i < str_array_hang.size();i++)  
+	{
+		string adjname1 = str_array_hang[i][0];
+		string adjname2 = str_array_hang[i][1];
+		node * node1;
+		node * node2;
+		node1 = foundNode(adjname1, nodeList);
+		node2 = foundNode(adjname2, nodeList);
+
+		//计算两节点间距离
+		int distance = sqrt(pow((node1->position_x - node2->position_x), 2) + pow(node1->position_y - node2->position_y, 2));
+		//创建 egde
+		edge * edge_1 = new edge(distance, node1, node2);
+		edgeList.push_back(edge_1);
+
+		edge * edge_2 = new edge(distance, node2, node1);
+		edgeList.push_back(edge_2);
+
+	}
+    
 	for (int i = 0; i < nodeList.size(); i++)
 	{
-		cout << nodeList[i]->node_name <<"x:"<< nodeList[i]->position_x<<"y:"<< nodeList[i]->position_y <<"连接的节点为："<< nodeList[i]->adjNodes[0]->node_name << endl;
+		for (int j = 0; j < nodeList.size(); j++)
+		{
+			edge * x = foundEdge(nodeList[i], nodeList[j], edgeList);
+			if (x != NULL)
+			{
+				nodeList[i]->adjNodes.push_back(nodeList[j]);  //把有连接的节点储存到 该节点旗下的 adjNodes 向量里
+			}
+		}
 	}
-	*/
+
 
 }
 

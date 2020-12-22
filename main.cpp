@@ -7,7 +7,8 @@ int main()
 {
 	
 	//********* 初始化变量 和 读取邻接矩阵的文件名 *************//
-	char csv_file_name[27] = "source code/map_matrix.csv";  //读哪个文件
+	char node_file_name[27] = "source code/node_info.csv";  //读哪个文件
+	char edge_file_name[27] = "source code/edge_info.csv";  //读哪个文件
 	vector<node *> nodeList;  //建立 节点 向量
 	vector<edge *> edgeList;  //建立 egde 向量
 
@@ -16,11 +17,11 @@ int main()
 
 	//********* 读取邻接矩阵信息，储存进nodeList edgeList 里面 ****************//
 
-	Csv2MyClass(nodeList, edgeList, csv_file_name);
+	Csv2MyClass(nodeList, edgeList, node_file_name, edge_file_name);
 
 	//                    end                               //
 
-
+	
 	//**************  画图  ************************//
 	int node_position_x[6] = { 0, 3, 6, 12, 23, 9 };
 	int node_position_y[6] = { 1,3,9,34,23,5 };
@@ -46,8 +47,8 @@ int main()
 		
 	}
 
-	_getch();
-	
+	//_getch();
+	closegraph();
 
 
 	//***** 根据nodeList edgeList 里面的信息，用单源最短路径法，找出从 0 节点开始，到其他节点的最短路径 ****//
