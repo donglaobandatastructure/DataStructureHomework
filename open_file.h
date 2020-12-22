@@ -11,5 +11,5 @@ using namespace std;
 
 void print_vector( vector<  vector<string>  > str_array );
 vector< vector<int> > str_vector2num_vector(vector<  vector<string>  > str_array);
-vector< vector<int> > read_csv(char file_name[], vector<string> & node_name);
+void read_csv(char file_name[],vector<node * > & nodeList);
 void Csv2MyClass(vector<node * > & nodeList, vector<edge * > & edgeList, char csv_file_name[]);

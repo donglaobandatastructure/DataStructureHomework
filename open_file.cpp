@@ -1,6 +1,77 @@
 #include "open_file.h"
 #define IS_PRINT_READ_RESULT 0
 
+void Csv2MyClass(vector<node * > & nodeList, vector<edge * > & edgeList, char csv_file_name[])
+{
+	read_csv(csv_file_name,nodeList);
+
+}
+
+void read_csv(char file_name[], vector<node * > & nodeList)
+{
+	ifstream fp(file_name, ios::in);
+	string line_str; //存放每一行的
+	vector< vector<string> >str_array_hang; //存放字符串数组的数组
+	vector< vector<int>  > map_matrix;  //存放邻接矩阵
+
+	while (getline(fp, line_str)) //每次读一行
+	{
+		//cout<<line_str<<endl;  //输出这一行
+
+		stringstream ss(line_str); //转化为 stringstream，类型
+		string str;  //用来储存逗号之间的字符串
+		vector<string> str_array_lie;
+
+		while (getline(ss, str, ','))
+		{
+			str_array_lie.push_back(str); //把逗号之间的 字符 存储在一个行向量里
+		}
+		str_array_hang.push_back(str_array_lie);
+
+	}
+
+	//存储节点名字 x y 
+	for (int i = 1; i < str_array_hang.size(); i++)
+	{
+		node * z = new node(str_array_hang[i][0]);
+
+		int num;
+		stringstream ss_x(str_array_hang[i][1]);
+		ss_x >> num;
+		z->position_x = num;
+
+		stringstream ss_y(str_array_hang[i][2]);
+		ss_y >> num;
+		z->position_y = num;
+
+		nodeList.push_back(z);
+	}
+	//存储连接的节点
+	for (int i = 1; i < str_array_hang.size(); i++)
+	{
+
+		for (int j = 3; j < str_array_hang[i].size(); j++)
+		{
+			string adjname = str_array_hang[i][j];
+			if (  foundNode(adjname, nodeList)!=NULL  )
+			{
+				nodeList[i-1]->adjNodes.push_back(foundNode(adjname, nodeList));
+			}
+
+		}
+
+	}
+     /*  
+	//显示节点名字 x y 以及连接的节点
+	for (int i = 0; i < nodeList.size(); i++)
+	{
+		cout << nodeList[i]->node_name <<"x:"<< nodeList[i]->position_x<<"y:"<< nodeList[i]->position_y <<"连接的节点为："<< nodeList[i]->adjNodes[0]->node_name << endl;
+	}
+	*/
+
+}
+
+/*  
 void Csv2MyClass(vector<node * > & nodeList, vector<edge * > & edgeList,char csv_file_name[])
 {
 	vector< vector<int>  > map_matrix; //用于存储邻接矩阵
@@ -55,6 +126,8 @@ void Csv2MyClass(vector<node * > & nodeList, vector<edge * > & edgeList,char csv
 
 }
 
+
+
 vector< vector<int> > read_csv(char file_name[], vector<string> & node_name)
 {
 	ifstream fp(file_name,ios::in);
@@ -96,6 +169,9 @@ vector< vector<int> > read_csv(char file_name[], vector<string> & node_name)
 
 	return map_matrix;
 }
+
+*/
+
 
 vector< vector<int> > str_vector2num_vector(vector<  vector<string>  > str_array)
 {
