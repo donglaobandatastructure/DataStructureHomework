@@ -1,8 +1,9 @@
 地点,位置x,位置y
-南门,0,0
-同心同德楼,-20,20
-济人济事楼,20,20
-A楼,-20,50
-DE楼,20,50
-BC楼,-20,70
-HFG楼,20,70
+South Gate,0,0
+TongXin Building,-20,20
+JiRen Building,20,20
+Building A,-20,50
+Building DE,20,50
+Building BC,-20,70
+Building HFG,20,70
+Library,-70,68

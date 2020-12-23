@@ -15,7 +15,7 @@ int main()
 	//                    end                               //
 
 
-	//********* 读取邻接矩阵信息，储存进nodeList edgeList 里面 ****************//
+	//********* 读取地图信息，储存进nodeList edgeList 里面 ****************//
 
 	Csv2MyClass(nodeList, edgeList, node_file_name, edge_file_name);
 
@@ -23,32 +23,7 @@ int main()
 
 	
 	//**************  画图  ************************//
-	int node_position_x[6] = { 0, 3, 6, 12, 23, 9 };
-	int node_position_y[6] = { 1,3,9,34,23,5 };
-	int radius = 20;
-
-	//init
-	initgraph(640, 480);
-
-	//设置背景颜色  线条颜色
-	setbkcolor(WHITE);
-	cleardevice();
-	setlinecolor(BLACK);
-
-	//开始画线
-	for (int i = 0; i < nodeList.size(); i++)
-	{
-		
-		if ( i < nodeList.size()-1 )
-		{
-			line(10 * node_position_x[i], 10 * node_position_y[i], 10 * node_position_x[i + 1], 10 * node_position_y[i + 1]);
-		}
-		fillcircle(10 * node_position_x[i], 10 * node_position_y[i], radius);
-		
-	}
-
-	//_getch();
-	closegraph();
+	DrawMap(nodeList, edgeList);
 
 
 	//***** 根据nodeList edgeList 里面的信息，用单源最短路径法，找出从 0 节点开始，到其他节点的最短路径 ****//

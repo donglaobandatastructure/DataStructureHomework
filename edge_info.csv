@@ -1,11 +1,24 @@
-路径（无向图）,
+路径（从连接点1指向连接点2）,
 连接点1,连接点2
-南门,同心同德楼
-南门,济人济事楼
-济人济事楼,同心同德楼
-济人济事楼,DE楼
-A楼,同心同德楼
-A楼,DE楼
-A楼,BC楼
-BC楼,HFG楼
-HFG楼,DE楼
+South Gate,TongXin Building
+South Gate,JiRen Building
+TongXin Building,South Gate
+TongXin Building,JiRen Building
+TongXin Building,Building A
+TongXin Building,Library
+JiRen Building,TongXin Building
+JiRen Building,Building DE
+JiRen Building,South Gate
+Building A,TongXin Building
+Building A,Building DE
+Building A,Building BC
+Building A,Library
+Building BC,Building HFG
+Building BC,Building A
+Building HFG,Building DE
+Building HFG,Building BC
+Building DE,Building HFG
+Building DE,Building A
+Building DE,JiRen Building
+Library,Building A
+Library,TongXin Building

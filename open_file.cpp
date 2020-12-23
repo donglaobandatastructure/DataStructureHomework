@@ -1,6 +1,6 @@
 #include "open_file.h"
 #include <math.h>
-#define IS_PRINT_READ_RESULT 0
+
 
 void Csv2MyClass(vector<node * > & nodeList, vector<edge * > & edgeList, char node_file_name[], char edge_file_name[])
 {
@@ -46,6 +46,9 @@ void read_node_info(char file_name[], vector<node * > & nodeList)
 		ss_y >> num;
 		z->position_y = num;
 
+		z->draw_x = z->position_x;
+		z->draw_y = z->position_y;
+
 		nodeList.push_back(z);
 	}
 
@@ -83,25 +86,6 @@ void read_edge_info(char file_name[], vector<edge * > & edgeList, vector<node * 
 		str_array_hang.push_back(str_array_lie);
 
 	}
-	
-	/*  
-	//存储连接的节点
-	for (int i = 1; i < str_array_hang.size(); i++)
-	{
-
-		for (int j = 3; j < str_array_hang[i].size(); j++)
-		{
-			string adjname = str_array_hang[i][j];
-			if (  foundNode(adjname, nodeList)!=NULL  )
-			{
-				nodeList[i-1]->adjNodes.push_back(foundNode(adjname, nodeList));
-			}
-
-		}
-
-	}
-	*/
-
 		
 	for (int i = 2; i < str_array_hang.size();i++)  
 	{
@@ -111,6 +95,11 @@ void read_edge_info(char file_name[], vector<edge * > & edgeList, vector<node * 
 		node * node2;
 		node1 = foundNode(adjname1, nodeList);
 		node2 = foundNode(adjname2, nodeList);
+		if (node1 == NULL || node2 == NULL)
+		{
+			cout << "没有找到对应的节点名字，请检查节点名字是否正确" << endl;
+			system("pause");
+		}
 
 		//计算两节点间距离
 		int distance = sqrt(pow((node1->position_x - node2->position_x), 2) + pow(node1->position_y - node2->position_y, 2));

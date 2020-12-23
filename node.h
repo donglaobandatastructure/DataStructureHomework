@@ -9,9 +9,11 @@ class node
 public:
 	int id;
 	int dis;
-	string node_name;
+	std::string node_name;
 	int position_x;
 	int position_y;
+	int draw_x;
+	int draw_y;
 
 	node * prevNode;
 	vector<node *> adjNodes;
