@@ -6,11 +6,9 @@
 #include "edge.h"
 #include "my_function.h"
 #include "open_file.h"
-//#include <easyx.h>			// Reference graphics library header file
-#include <conio.h>
+#include "draw.h"
 #include <math.h>
 #include <windows.h>
-//#include <GL/freeglut.h>
 
 
 int edge::countId = 0;

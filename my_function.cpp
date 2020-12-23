@@ -98,6 +98,7 @@ void FindShortestPath(vector<node * > & nodeList, vector<edge * > & edgeList)
 
 }
 
+
 void FindShortestPathFromSpecificPoint(vector<node * > & nodeList, vector<edge * > & edgeList,int num)
 {
 	vector<node *> S;  //节点S 向量
@@ -135,6 +136,21 @@ void FindShortestPathFromSpecificPoint(vector<node * > & nodeList, vector<edge *
 }
 
 
+
+
+node * foundNode(string node_name, vector<node * > nodeList)
+{
+	node * x = NULL;
+	for (int i = 0; i < nodeList.size(); i++)
+	{
+		if (node_name == nodeList[i]->node_name)
+		{
+			x = nodeList[i]; break;
+		}
+	}
+
+	return x;
+}
 
 edge * foundEdge(node * n1, node * n2, vector<edge *> edgeList)
 {
