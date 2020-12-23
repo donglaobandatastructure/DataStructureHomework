@@ -31,17 +31,20 @@ int main()
 	//***** 根据nodeList edgeList 里面的信息，用单源最短路径法，找出从 0 节点开始，到其他节点的最短路径 ****//
 
 	int num;
-	cout << "输入起点序号" << endl;
-	cin >> num;
-	//选择起点
+	cout << "请输入起点" << endl;
+	string s;
+	getline(cin, s);
+	num=FromNameGetId(s,nodeList);
 
 	FindShortestPathFromSpecificPoint(nodeList, edgeList, num);
 
 	//                    end                        //
 
 	PrintOnePathFromSpecificPoint(nodeList, num);
-    //                    end                        //
+	//                    end                        //
 
-	system("pause");
+	while(1)
+	{ }
+	
 	return 0;
 }

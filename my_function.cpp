@@ -45,11 +45,14 @@ void PrintOnePath( vector<node *> nodeList)
 void PrintOnePathFromSpecificPoint(vector<node *> nodeList,int num)
 {
 	int i;
-	cout << "想要知道到哪个点的最短路径？" << endl;
-	cin >> i;
+	cout << "想要知道到哪个点的最短路径？请输入目的地名字" << endl;
+	string s;
+	getline(cin, s);
+	i = FromNameGetId(s, nodeList);
+	
 	if (nodeList[i]->dis != 999999)
 	{
-		cout << "从起点到节点" << nodeList[i]->id << "的最短距离是" << nodeList[i]->dis << endl;
+		cout << "从"<<nodeList[num]->node_name<<"到" << nodeList[i]->node_name << "的最短距离是" << nodeList[i]->dis << endl;
 		cout << "最短路径为：" << endl;
 		printPath(nodeList[num], nodeList[i]);
 		cout << endl;
@@ -195,22 +198,42 @@ node * extract_min(vector<node *> Q)  //把 Q里面的dis 最小值找到，返回 node 实例
 void printPath(node * node1, node* node2)
 {
 	if (node1 == node2)
-		cout << node1->id << "  ";
+		cout << node1->node_name;
 	else
 	{
 		if (node2->prevNode == NULL)
-			cout << "no path from" << node1->id << "to" << node2->id << "exist" << endl;
+			cout << "no path from" << node1->node_name << "to" << node2->node_name << "exist" << endl;
 		else
 		{
 			printPath(node1, node2->prevNode);
-			cout << node2->id << "  ";
+			cout << "->"<<node2->node_name;
 			setlinecolor(BLUE);
 			setlinestyle(PS_SOLID, 3);
 			line(node2->draw_x, node2->draw_y, node2->prevNode->draw_x, node2->prevNode->draw_y);
 			DrawOneNode(node2);
 			DrawOneNode(node2->prevNode);
+			Sleep(2500);
 			
 		}
 
 	}
+}
+
+int FromNameGetId(string name,vector <node *> nodeList)
+{
+	node * x;
+	x = foundNode(name, nodeList);
+
+	while (x == NULL)
+	{
+		cout << "输入的节点名称不正确" << endl;
+		cout << "请重新输入" << endl;
+		getline(cin, name);
+		x = foundNode(name, nodeList);
+	}
+
+	int num;
+	num = x->id;
+
+	return num;
 }

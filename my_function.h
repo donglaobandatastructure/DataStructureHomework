@@ -2,6 +2,7 @@
 #include "node.h"
 #include "edge.h"
 #include<iostream>
+#include<string>
 #include "draw.h"
 using namespace std;
 
@@ -16,4 +17,5 @@ void FindShortestPathFromSpecificPoint(vector<node * > & nodeList, vector<edge *
 void PrintOnePath(vector<node *> nodeList);
 void PrintOnePathFromSpecificPoint(vector<node *> nodeList, int num);
 void PrintAllPath(vector<node *> nodeList);
+int FromNameGetId(string name, vector <node *> nodeList);
 //static int time;
