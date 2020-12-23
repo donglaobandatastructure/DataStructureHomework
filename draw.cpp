@@ -19,7 +19,6 @@ void DrawMap(vector<node *> nodeList, vector<edge *> edgeList)
 
 	//画所有节点
 	DrawNodeList(nodeList);
-	_getch();
 }
 
 void PreparForDrawing(vector<node *> & nodeList)
@@ -75,6 +74,12 @@ void DrawEdgeList(vector <edge *> edgeList)
 void DrawOneEdge(edge * edge_input)
 {
 	line(edge_input->Node1->draw_x, edge_input->Node1->draw_y, edge_input->Node2->draw_x, edge_input->Node2->draw_y);
+
+	
+	CString str;
+	str.Format(_T("%d"), edge_input->weight);
+	outtextxy((edge_input->Node1->draw_x + edge_input->Node2->draw_x) / 2, (edge_input->Node1->draw_y + edge_input->Node2->draw_y) / 2, str);
+
 }
 
 void DrawOneNode(node * node_input)
