@@ -7,7 +7,7 @@ void DrawMap(vector<node *> nodeList, vector<edge *> edgeList)
 	PreparForDrawing( nodeList);
 
 	//init
-	initgraph(WINDOW_HIGHT, WINDOW_WIDTH, EW_SHOWCONSOLE);
+	initgraph(WINDOW_WIDTH, WINDOW_HIGHT,EW_SHOWCONSOLE);
 	//设置背景颜色  线条颜色
 	setbkcolor(WHITE);
 	cleardevice();

@@ -9,10 +9,10 @@
 
 
 #define WINDOW_HIGHT 840
-#define WINDOW_WIDTH 840
+#define WINDOW_WIDTH 1200
 #define RADIU 20
 #define TEXT_HIGHT 20
-#define TEXT_WIDTH 60
+#define TEXT_WIDTH 80
 
 void DrawMap(vector<node *> nodeList, vector<edge *> edgeList);
 void PreparForDrawing(vector<node *> & nodeList);

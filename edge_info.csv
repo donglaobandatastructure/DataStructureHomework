@@ -22,3 +22,13 @@ Building DE,Building A
 Building DE,JiRen Building
 Library,Building A
 Library,TongXin Building
+Library,School of Electronic
+Library,School of Materials
+School of Art,TongXin Building
+School of Art,Tongji Ecosphere
+Tongji Ecosphere,School of Art
+Tongji Ecosphere,School of Materials
+School of Materials,Tongji Ecosphere
+School of Materials,Library
+School of Electronic,Library
+School of Electronic,Building BC
