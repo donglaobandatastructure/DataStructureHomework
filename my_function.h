@@ -2,6 +2,7 @@
 #include "node.h"
 #include "edge.h"
 #include<iostream>
+#include "draw.h"
 using namespace std;
 
 

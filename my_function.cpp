@@ -204,6 +204,12 @@ void printPath(node * node1, node* node2)
 		{
 			printPath(node1, node2->prevNode);
 			cout << node2->id << "  ";
+			setlinecolor(BLUE);
+			setlinestyle(PS_SOLID, 3);
+			line(node2->draw_x, node2->draw_y, node2->prevNode->draw_x, node2->prevNode->draw_y);
+			DrawOneNode(node2);
+			DrawOneNode(node2->prevNode);
+			
 		}
 
 	}
