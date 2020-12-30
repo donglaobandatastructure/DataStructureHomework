@@ -8,8 +8,8 @@ int main()
 	
 	//********* 初始化变量 和 读取邻接矩阵的文件名 *************//
 
-	char node_file_name[27] = "source code/node_info.csv";  //读哪个文件
-	char edge_file_name[27] = "source code/edge_info.csv";  //读哪个文件
+	char node_file_name[50] = "DataStructureHomework/node_info.csv";  //读哪个文件
+	char edge_file_name[50] = "DataStructureHomework/edge_info.csv";  //读哪个文件
 
 	vector<node *> nodeList;  //建立 节点 向量
 	vector<edge *> edgeList;  //建立 egde 向量
@@ -29,7 +29,7 @@ int main()
 
 
 	//***** 根据nodeList edgeList 里面的信息，用单源最短路径法，找出从 0 节点开始，到其他节点的最短路径 ****//
-	cout << "example: \n 如果起点是南门，则可以输入： South Gate  或者 0 " << endl << endl;;
+	cout << "example: \n 如果起点是南门，则可以输入： South Gate  或者 1 " << endl << endl;;
 	cout << "**********************************" << endl << endl;;
 	cout << "请输入 起点名称 或者 id" << endl;
 
