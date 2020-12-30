@@ -91,7 +91,7 @@ void DrawOneNode(node * node_input)
 	LPCTSTR str_x = stringToLPCWSTR(node_input->node_name);
 	drawtext(str_x, &r, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 
-	r = { node_input->draw_x - TEXT_WIDTH,node_input->draw_y - TEXT_HIGHT+10, node_input->draw_x + TEXT_WIDTH ,node_input->draw_y + TEXT_HIGHT+10 };
+	r = { node_input->draw_x - ID_WIDTH,node_input->draw_y - ID_HIGHT+15, node_input->draw_x + ID_WIDTH ,node_input->draw_y + ID_HIGHT+15 };
 	
 	CString str;
 	str.Format(_T("%d"), node_input->id);

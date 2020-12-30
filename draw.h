@@ -13,6 +13,8 @@
 #define RADIU 20
 #define TEXT_HIGHT 20
 #define TEXT_WIDTH 80
+#define ID_WIDTH 20
+#define ID_HIGHT 10
 
 void DrawMap(vector<node *> nodeList, vector<edge *> edgeList);
 void PreparForDrawing(vector<node *> & nodeList);
