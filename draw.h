@@ -8,8 +8,8 @@
 #include <Windows.h>
 
 
-#define WINDOW_HIGHT 840
-#define WINDOW_WIDTH 1200
+#define WINDOW_HIGHT 800
+#define WINDOW_WIDTH 1000
 #define RADIU 20
 #define TEXT_HIGHT 20
 #define TEXT_WIDTH 80

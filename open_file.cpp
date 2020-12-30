@@ -98,6 +98,7 @@ void read_edge_info(char file_name[], vector<edge * > & edgeList, vector<node * 
 		if (node1 == NULL || node2 == NULL)
 		{
 			cout << "没有找到对应的节点名字，请检查节点名字是否正确" << endl;
+			cout << adjname1 <<"  "<< adjname2 << endl;
 			system("pause");
 		}
 

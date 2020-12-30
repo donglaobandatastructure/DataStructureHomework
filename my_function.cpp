@@ -212,7 +212,7 @@ void printPath(node * node1, node* node2)
 			line(node2->draw_x, node2->draw_y, node2->prevNode->draw_x, node2->prevNode->draw_y);
 			DrawOneNode(node2);
 			DrawOneNode(node2->prevNode);
-			Sleep(2500);
+			Sleep(2000);
 			
 		}
 

@@ -27,8 +27,35 @@ Library,School of Materials
 School of Art,TongXin Building
 School of Art,Tongji Ecosphere
 Tongji Ecosphere,School of Art
+Tongji Ecosphere,Maglev Laboratory
 Tongji Ecosphere,School of Materials
+Maglev Laboratory,Tongji Ecosphere
+Maglev Laboratory,Earthquake Hall
+Earthquake Hall,Maglev Laboratory
+Earthquake Hall,Automotive Studies
+Earthquake Hall,Wind Tunnel Center
 School of Materials,Tongji Ecosphere
 School of Materials,Library
+School of Materials,Automotive Studies
+School of Materials,Mechanical Engineering
 School of Electronic,Library
 School of Electronic,Building BC
+School of Electronic,Mechanical Engineering
+School of Electronic,Transportation Engineering
+Transportation Engineering,School of Electronic
+Transportation Engineering,Mechanical Engineering
+Transportation Engineering,Energy Center
+Mechanical Engineering,School of Electronic
+Mechanical Engineering,School of Materials
+Mechanical Engineering,Automotive Studies
+Mechanical Engineering,Wind Tunnel Center
+Mechanical Engineering,Energy Center
+Mechanical Engineering,Transportation Engineering
+Automotive Studies,Earthquake Hall
+Automotive Studies,Wind Tunnel Center
+Automotive Studies,Mechanical Engineering
+Automotive Studies,School of Materials
+Wind Tunnel Center,Earthquake Hall
+Wind Tunnel Center,Automotive Studies
+Wind Tunnel Center,Mechanical Engineering
+Wind Tunnel Center,Energy Center
