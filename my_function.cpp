@@ -236,6 +236,7 @@ int FromNameGetId(string name,vector <node *> nodeList)
 		x = foundNode(name, nodeList);
 		if (x == NULL)
 		{
+			cout << "*****************************" << endl;
 			cout << "输入的节点名称不正确" << endl;
 			cout << "请重新输入 节点名称 或 id" << endl;
 
