@@ -221,6 +221,15 @@ void printPath(node * node1, node* node2)
 
 int FromNameGetId(string name,vector <node *> nodeList)
 {
+	int n = atoi(name.c_str());
+	cout << n;
+	for (auto v : nodeList)
+	{
+		if (n == v->id)
+			return v->id;
+	}
+
+
 	node * x;
 	x = foundNode(name, nodeList);
 
