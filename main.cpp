@@ -29,12 +29,11 @@ int main()
 
 
 	//***** 根据nodeList edgeList 里面的信息，用单源最短路径法，找出从 0 节点开始，到其他节点的最短路径 ****//
-
-	int num;
-	
 	cout << "example: \n 如果起点是南门，则可以输入： South Gate  或者 0 " << endl << endl;;
 	cout << "**********************************" << endl << endl;;
 	cout << "请输入 起点名称 或者 id" << endl;
+
+	int num;
 	string s;
 	getline(cin, s);
 	num=FromNameGetId(s,nodeList);

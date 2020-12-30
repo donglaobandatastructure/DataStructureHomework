@@ -19,7 +19,7 @@ void DrawMap(vector<node *> nodeList, vector<edge *> edgeList)
 
 	//画所有节点
 	DrawNodeList(nodeList);
-	_getch();
+	//_getch();
 }
 
 void PreparForDrawing(vector<node *> & nodeList)

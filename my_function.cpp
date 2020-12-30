@@ -221,28 +221,36 @@ void printPath(node * node1, node* node2)
 
 int FromNameGetId(string name,vector <node *> nodeList)
 {
-	int n = atoi(name.c_str());
-	cout << n;
-	for (auto v : nodeList)
-	{
-		if (n == v->id)
-			return v->id;
-	}
-
-
 	node * x;
-	x = foundNode(name, nodeList);
-
-	while (x == NULL)
+	
+	while (1)
 	{
-		cout << "输入的节点名称不正确" << endl;
-		cout << "请重新输入" << endl;
-		getline(cin, name);
+		int n = atoi(name.c_str());
+
+		for (auto v : nodeList)
+		{
+			if (n == v->id && n != 0)
+				return v->id - 1;
+		}
+
 		x = foundNode(name, nodeList);
+		if (x == NULL)
+		{
+			cout << "输入的节点名称不正确" << endl;
+			cout << "请重新输入 节点名称 或 id" << endl;
+
+		}
+		else
+		{ 
+			int num;
+			num = x->id;
+
+			return num - 1;
+		}
+
+		getline(cin, name);
+		
 	}
 
-	int num;
-	num = x->id;
-
-	return num;
+	
 }

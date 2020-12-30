@@ -11,5 +11,5 @@
 #include <windows.h>
 
 
-int edge::countId = 0;
-int node::countId = 0;
+int edge::countId = 1;
+int node::countId = 1;
