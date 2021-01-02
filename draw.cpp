@@ -3,17 +3,12 @@
 
 void DrawMap(vector<node *> nodeList, vector<edge *> edgeList)
 {
-	//坐标变换
-	PreparForDrawing( nodeList);
-
-	//init
-	initgraph(WINDOW_WIDTH, WINDOW_HIGHT,EW_SHOWCONSOLE);
 	//设置背景颜色  线条颜色
 	setbkcolor(WHITE);
 	cleardevice();
 	setlinecolor(BLACK);
 	settextcolor(BLACK);
-
+	setlinestyle(PS_SOLID,1);
 	//画所有edge
 	DrawEdgeList(edgeList);
 

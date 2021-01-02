@@ -45,11 +45,13 @@ void PrintOnePath( vector<node *> nodeList)
 void PrintOnePathFromSpecificPoint(vector<node *> nodeList,int num)
 {
 	int i;
-	cout << "想要知道到哪个点的最短路径？请输入目的地名字" << endl;
+	cout << "想要知道到哪个点的最短路径？请输入 目的地名字 或者 id" << endl;
 	string s;
 	getline(cin, s);
 	i = FromNameGetId(s, nodeList);
 	
+	cout << "*****************************" << endl;
+	cout << "最短路径打印如下，同时绘图窗口也显示了最短路径" << endl << endl;
 	if (nodeList[i]->dis != 999999)
 	{
 		cout << "从"<<nodeList[num]->node_name<<"到" << nodeList[i]->node_name << "的最短距离是" << nodeList[i]->dis << endl;
