@@ -18,4 +18,5 @@ void PrintOnePath(vector<node *> nodeList);
 void PrintOnePathFromSpecificPoint(vector<node *> nodeList, int num);
 void PrintAllPath(vector<node *> nodeList);
 int FromNameGetId(string name, vector <node *> nodeList);
+void Reinitialize(vector<node *> & nodeList, vector<edge *> edgeList);
 //static int time;

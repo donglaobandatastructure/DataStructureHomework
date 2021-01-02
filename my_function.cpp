@@ -257,3 +257,23 @@ int FromNameGetId(string name,vector <node *> nodeList)
 
 	
 }
+
+
+void Reinitialize(vector<node *> & nodeList, vector<edge *> edgeList)
+{
+	int node_num = nodeList.size();
+	int edge_num = edgeList.size();
+
+	for (int i = 0; i < node_num; i++)
+	{
+		nodeList.pop_back();
+	}
+
+	for (int i = 0; i < edge_num; i++)
+	{
+		edgeList.pop_back();
+	}
+
+	edge::countId = 1;
+    node::countId = 1;
+}

@@ -14,18 +14,6 @@ int main()
 	vector<node *> nodeList;  //建立 节点 向量
 	vector<edge *> edgeList;  //建立 egde 向量
 
-	//                    end                               //
-
-
-	//********* 读取地图信息，储存进nodeList edgeList 里面 ****************//
-
-	Csv2MyClass(nodeList, edgeList, node_file_name, edge_file_name);
-
-	//                    end                               //
-
-	//坐标变换
-	PreparForDrawing(nodeList);
-
 	//初始一个绘图窗口
 	initgraph(WINDOW_WIDTH, WINDOW_HIGHT, EW_SHOWCONSOLE);
 	
@@ -33,6 +21,17 @@ int main()
 	//大循环 每次循环都询问用户 起点 和 终点。 遇到 -1时 跳出
 	while(1)
 	{ 
+
+		//********* 读取地图信息，储存进nodeList edgeList 里面 ****************//
+
+		Csv2MyClass(nodeList, edgeList, node_file_name, edge_file_name);
+
+		//                    end                               //
+
+		//坐标变换
+		PreparForDrawing(nodeList);
+
+
 		//**************  画图  ************************//
 		DrawMap(nodeList, edgeList);
 
@@ -68,6 +67,7 @@ int main()
 				return 0;
 			else if (s == yes)
 			{
+				Reinitialize(nodeList, edgeList);
 				clearcliprgn();
 				break;
 			}
